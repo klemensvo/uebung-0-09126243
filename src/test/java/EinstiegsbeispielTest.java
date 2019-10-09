@@ -8,8 +8,4 @@ public class EinstiegsbeispielTest {
         Assertions.assertTrue(true);
     }
 
-    @Test
-    public void test2() {
-        Assertions.assertTrue(true);
-    }
 }

@@ -15,7 +15,7 @@ public class Einstiegsbeispiel {
         arrayWithRepetitions[9] = 4;
         arrayWithRepetitions[10] = 4;
 
-        System.out.println("Data of input array:");
+        System.out.println("\nData of input array:");
         for (int i = 0; i < arrayWithRepetitions.length; i++) {
             System.out.print(arrayWithRepetitions[i] + " ");
         }
@@ -42,6 +42,8 @@ public class Einstiegsbeispiel {
             }
 
             i++;
+
+            //todo get rid of duplicate code (working, but not nice)
             if (i == incomingArray.length) {
                 hashMapOfNumberOfRepetitions.put(incomingArray[i - 1], repetitionCounter);
             }

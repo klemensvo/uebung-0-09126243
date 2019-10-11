@@ -15,19 +15,19 @@ public class Einstiegsbeispiel {
         arrayWithRepetitions[9] = 4;
         arrayWithRepetitions[10] = 4;
 
-        //todo delete later
+        System.out.println("Data of input array:");
         for (int i = 0; i < arrayWithRepetitions.length; i++) {
             System.out.print(arrayWithRepetitions[i] + " ");
         }
 
+        System.out.println("\n\nResulting HashMap:");
         HashMap resultingHashMap = new HashMap();
         resultingHashMap = getRepetitions(arrayWithRepetitions);
         System.out.println(resultingHashMap);
-
     }
 
     public static HashMap getRepetitions(int[] incomingArray) {
-        HashMap<Integer, Integer> numberOfRepetitions = new HashMap();
+        HashMap<Integer, Integer> hashMapOfNumberOfRepetitions = new HashMap();
         int integerToCompare = incomingArray[0];
         int repetitionCounter = 1;
         int i = 1;
@@ -36,32 +36,17 @@ public class Einstiegsbeispiel {
                 repetitionCounter++;
 
             } else {
-                numberOfRepetitions.put(incomingArray[i - 1], repetitionCounter);
+                hashMapOfNumberOfRepetitions.put(incomingArray[i - 1], repetitionCounter);
                 repetitionCounter = 1;
                 integerToCompare = incomingArray[i];
             }
+
             i++;
-
-        }
-
-        /*
-        for (int i = 1; i < incomingArray.length; i++) {
-            do {
-            if(incomingArray[i] == integerToCompare) {
-                repetitionCounter++;
-            } else {
-                numberOfRepetitions.put(incomingArray[i], repetitionCounter);
-                endOfRepetion = true;
+            if (i == incomingArray.length) {
+                hashMapOfNumberOfRepetitions.put(incomingArray[i - 1], repetitionCounter);
             }
-
-            } while (!endOfRepetion);
-        */
-
-
-        // numberOfRepetitions.put(1, 2);
-        // System.out.println(numberOfRepetitions.get(1));
-        return numberOfRepetitions;
-
+        }
+        return hashMapOfNumberOfRepetitions;
     }
 
 

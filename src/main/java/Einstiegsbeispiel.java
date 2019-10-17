@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Einstiegsbeispiel {
     public static void main(String[] args) {
+
         int[] arrayWithRepetitions = new int[11];
         arrayWithRepetitions[0] = 1;
         arrayWithRepetitions[1] = 1;
@@ -22,30 +24,30 @@ public class Einstiegsbeispiel {
 
         HashMap<Integer, Integer> hashMapResult;
         hashMapResult = numberOfRepetitions(arrayWithRepetitions);
-        System.out.println(hashMapResult);
-
+        System.out.println("\n\nHashMap with numbers of repetition of each integer:\n" + hashMapResult);
     }
 
     public static HashMap numberOfRepetitions(int[] array) {
         HashMap<Integer, Integer> hm = new HashMap<>();
-        int counter = 1;
-        int previous = array[0];
-        for (int i = 1; i < array.length - 1; i++) {
-            if (array[i] == previous) {
-                counter++;
-            } else {
-                hm.put(previous, counter);
-                counter = 1;
-                previous = array[i];
+        if (array.length > 0) {
+            int counter = 1;
+            int previous = array[0];
+            for (int i = 1; i < array.length; i++) {
+                if (array[i] == previous && !(i == array.length - 1)) {
+                    counter++;
+                } else {
+                    if (i == array.length - 1) {
+                        counter++;
+                        hm.put(previous, counter);
+                        break;
+                    } else {
+                        hm.put(previous, counter);
+                        counter = 1;
+                        previous = array[i];
+                    }
+                }
             }
         }
-        counter++;
-        hm.put(previous, counter);
-
-
         return hm;
-
-}
-
-
+    }
 }

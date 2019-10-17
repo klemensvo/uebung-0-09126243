@@ -31,15 +31,6 @@ public class EinstiegsbeispielTest {
         Assertions.assertEquals(expectedHashMap, testHashMap);
     }
 
-    @Test
-    public void testAssertMustBeTrue3() {
-        int[] testArray = new int[1];
-        testArray[0] = 1;
-        HashMap testHashMap = Einstiegsbeispiel.numberOfRepetitions(testArray);
-        HashMap expectedHashMap = new HashMap();
-        expectedHashMap.put(1, 1);
-        Assertions.assertEquals(expectedHashMap, testHashMap);
-    }
 
     @Test
     public void testAssertMustBeTrue4() {

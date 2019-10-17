@@ -5,6 +5,12 @@ import java.util.HashMap;
 
 public class EinstiegsbeispielTest {
 
+    /* note: I tried to make a test that finds incorrect inputs, however
+    it was not possible to compile anything not equal to an int[]-array; I tried char[],
+    int, String, etc. And no integers out of the int[]-array are explicitly excluded in
+    the specification of the assignment
+    */
+
     @Test
     public void testAssertMustBeTrue1() {
         int[] testArray = new int[2];
@@ -31,6 +37,17 @@ public class EinstiegsbeispielTest {
         Assertions.assertEquals(expectedHashMap, testHashMap);
     }
 
+    @Test
+    public void testAssertMustBeTrue3() {
+        int[] testArray = new int[2];
+        testArray[0] = -1;
+        testArray[1] = 4;
+        HashMap testHashMap = Einstiegsbeispiel.getRepetitions(testArray);
+        HashMap expectedHashMap = new HashMap();
+        expectedHashMap.put(-1, 1);
+        expectedHashMap.put(4, 1);
+        Assertions.assertNotEquals(expectedHashMap, testHashMap);
+    }
 
     @Test
     public void testAssertMustBeTrue4() {
@@ -65,4 +82,5 @@ public class EinstiegsbeispielTest {
         expectedHashMap.put(2, 5);
         Assertions.assertNotEquals(expectedHashMap, testHashMap);
     }
+
 }

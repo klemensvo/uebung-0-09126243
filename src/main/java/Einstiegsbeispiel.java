@@ -20,36 +20,32 @@ public class Einstiegsbeispiel {
             System.out.print(arrayWithRepetitions[i] + " ");
         }
 
-        System.out.println("\n\nResulting HashMap:");
-        HashMap resultingHashMap = new HashMap();
-        resultingHashMap = getRepetitions(arrayWithRepetitions);
-        System.out.println(resultingHashMap);
+        HashMap<Integer, Integer> hashMapResult;
+        hashMapResult = numberOfRepetitions(arrayWithRepetitions);
+        System.out.println(hashMapResult);
+
     }
 
-    public static HashMap getRepetitions(int[] incomingArray) {
-        HashMap<Integer, Integer> hashMapOfNumberOfRepetitions = new HashMap();
-        int integerToCompare = incomingArray[0];
-        int repetitionCounter = 1;
-        int i = 1;
-        while (i < incomingArray.length) {
-            if (incomingArray[i] == integerToCompare) {
-                repetitionCounter++;
-
+    public static HashMap numberOfRepetitions(int[] array) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int counter = 1;
+        int previous = array[0];
+        for (int i = 1; i < array.length - 1; i++) {
+            if (array[i] == previous) {
+                counter++;
             } else {
-                hashMapOfNumberOfRepetitions.put(incomingArray[i - 1], repetitionCounter);
-                repetitionCounter = 1;
-                integerToCompare = incomingArray[i];
-            }
-
-            i++;
-
-            //todo get rid of duplicate code (working, but not nice)
-            if (i == incomingArray.length) {
-                hashMapOfNumberOfRepetitions.put(incomingArray[i - 1], repetitionCounter);
+                hm.put(previous, counter);
+                counter = 1;
+                previous = array[i];
             }
         }
-        return hashMapOfNumberOfRepetitions;
-    }
+        counter++;
+        hm.put(previous, counter);
+
+
+        return hm;
+
+}
 
 
 }

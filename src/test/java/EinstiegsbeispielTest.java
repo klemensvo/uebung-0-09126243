@@ -10,7 +10,7 @@ public class EinstiegsbeispielTest {
         int[] testArray = new int[2];
         testArray[0] = 1;
         testArray[1] = 1;
-        HashMap testHashMap = Einstiegsbeispiel.numberOfRepetitions(testArray);
+        HashMap testHashMap = Einstiegsbeispiel.getRepetitions(testArray);
         HashMap expectedHashMap = new HashMap();
         expectedHashMap.put(1, 2);
         Assertions.assertEquals(expectedHashMap, testHashMap);
@@ -24,7 +24,7 @@ public class EinstiegsbeispielTest {
         testArray[2] = 4;
         testArray[3] = 4;
         testArray[4] = 4;
-        HashMap testHashMap = Einstiegsbeispiel.numberOfRepetitions(testArray);
+        HashMap testHashMap = Einstiegsbeispiel.getRepetitions(testArray);
         HashMap expectedHashMap = new HashMap();
         expectedHashMap.put(2, 1);
         expectedHashMap.put(4, 4);
@@ -35,7 +35,7 @@ public class EinstiegsbeispielTest {
     @Test
     public void testAssertMustBeTrue4() {
         int[] testArray = new int[0];
-        HashMap testHashMap = Einstiegsbeispiel.numberOfRepetitions(testArray);
+        HashMap testHashMap = Einstiegsbeispiel.getRepetitions(testArray);
         HashMap expectedHashMap = new HashMap();
         Assertions.assertEquals(expectedHashMap, testHashMap);
     }
@@ -45,7 +45,7 @@ public class EinstiegsbeispielTest {
         int[] testArray = new int[2];
         testArray[0] = 1;
         testArray[1] = 1;
-        HashMap testHashMap = Einstiegsbeispiel.numberOfRepetitions(testArray);
+        HashMap testHashMap = Einstiegsbeispiel.getRepetitions(testArray);
         HashMap expectedHashMap = new HashMap();
         expectedHashMap.put(1, 1);
         expectedHashMap.put(2, 1);
@@ -60,7 +60,7 @@ public class EinstiegsbeispielTest {
         testArray[2] = 4;
         testArray[3] = 4;
         testArray[4] = 4;
-        HashMap testHashMap = Einstiegsbeispiel.numberOfRepetitions(testArray);
+        HashMap testHashMap = Einstiegsbeispiel.getRepetitions(testArray);
         HashMap expectedHashMap = new HashMap();
         expectedHashMap.put(2, 5);
         Assertions.assertNotEquals(expectedHashMap, testHashMap);
